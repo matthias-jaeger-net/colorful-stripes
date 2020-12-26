@@ -1,80 +1,40 @@
 # colorful-stripes
 A collection of a few attempts to create a colorful minimalistic visual in p5 js
 
-## Colors
-```javascript
-// Used in all examples
-const colors = [
-  '#E55A2E', 
-  '#E5BC4B', 
-  '#FEED61', 
-  '#DAEC5E', 
-  '#3F864D',
-  '#58B2B0', 
-  '#5B8FEB', 
-  '#3260B2', 
-  '#000000'
-];
-```
-
 # colorstripes 1
 
 ![colorstripes1](colorstripes1(16).jpg)
 
 ```javascript
+const colors = [
+  '#E55A2E', '#E5BC4B', '#FEED61',
+  '#DAEC5E', '#3F864D', '#58B2B0',
+  '#5B8FEB', '#3260B2', '#000000'
+];
+
+
 function setup() {
-
-  // Format
-  createCanvas(800, 400);  
-  
-  // Distance between the lines
-  const s = 8;
-  
-  // Scales the thickness 
-  const f = 0.85;
-  
-  // Increment for the noise 
-  const i = 0.001;
-  
-  // Current noise 
-  let n = 0;
-  
-  // Hack: Loops larger than the view to avoid empty spots
-  for (let x = -width; x < width + width; x += s) {
-
-    // A point on a 'virtual line' from top to bottom 
-    const mid = createVector(x, height * noise(n));
-    
-    // Another noisy offset vector to shift left and right
-    const off = createVector(width * noise(n), 0);
-    
-    // Add the offset
+  createCanvas(800, 400);
+  noFill();
+  const spacing = 8;
+  const reduction = 0.85;
+  const noiseInc = 0.001;
+  let currentNoise = 0;
+  for (let x = -width; x < width + width; x += spacing) {
+    const mid = createVector(x, height * noise(currentNoise));
+    const off = createVector(width * noise(currentNoise), 0);
     mid.add(off);
-    
-    // Make each shape in a random color from the list
     stroke(random(colors));
-    
-    // Prevent default white fill
-    noFill();
-    
-    // A random value, smaller than the distance betweeen curves
-    strokeWeight(random(f * s));
-    
-    // Draw the shape
+    strokeWeight(random(spacing * reduction));
     beginShape();
-    curveVertex(x, 0);          // Control start
-    curveVertex(x, 0);          // Anchor start
-    curveVertex(mid.x, mid.y);  // Curvy midpoint
-    curveVertex(x, height);     // Anchor end
-    curveVertex(x, height);     // Control end
+    curveVertex(x, 0);
+    curveVertex(x, 0);
+    curveVertex(mid.x, mid.y);
+    curveVertex(x, height);
+    curveVertex(x, height);
     endShape();
-    
-    // Travel along the noise wave
-    n += i;
+    currentNoise += noiseInc;
   }
-  
-  // Done, save out
-  save("colorstripes1.jpg");
 }
 ```
 

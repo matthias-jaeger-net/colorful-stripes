@@ -46,11 +46,11 @@ function setup() {
   
   // Hack: Loops larger than the view to avoid empty spots
   for (let x = -width; x < width + width; x += s) {
-    // Calculate a 'midpoint' bewteen start and end of the curve
-    const mid = createVector(x, height * 0.5);
+    // A point on a 'virtual line' from top to bottom 
+    const mid = createVector(x, height * noise(n));
     
-    // Calculate a noisy offset vector
-    const off = createVector(height * noise(n), 0);
+    // Another noisy offset vector to shift left and right
+    const off = createVector(width * noise(n), 0);
     
     // Add the offset
     mid.add(off);

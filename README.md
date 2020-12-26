@@ -18,12 +18,12 @@ const colors = [
 ```
 
 # colorstripes 1
-Along the the X-axis a number of vertical lines in random colors are created and modified with perlin noise to render a 'fluid' looking piece.
+Along the the X-axis a number of curve shapes in random colors are created. Each time a 'virtual' midpoint is calculated and modified with perlin noise to render a 'fluid' looking piece. The original was a square image in these sketches I used a landscape format.
 
 ![colorstripes1](colorstripes1(16).jpg)
 *An example that worked for me*
 
-![colorstripes1](colorstripes1(16).jpg)
+![colorstripes1](colorstripes1(4).jpg)
 *An example that didn't work for me*
 
 ## Code

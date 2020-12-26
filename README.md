@@ -18,7 +18,6 @@ const colors = [
 ```
 
 # colorstripes 1
-Along the the X-axis a number of curve shapes in random colors are created. Each time a 'virtual' midpoint is calculated and modified with perlin noise to render a 'fluid' looking piece. 
 
 ![colorstripes1](colorstripes1(16).jpg)
 *An example that worked for me*
@@ -28,16 +27,18 @@ Along the the X-axis a number of curve shapes in random colors are created. Each
 
 ## Code with comments
 ```javascript
-// No draw loop, single image out
 function setup() {
-  // Format: The original was a square image
+
+  // Format
   createCanvas(800, 400);  
   
   // Variables to play with:
   // - Initial distance between the lines
   const s = 8;
+  
   // - Scales the thickness 
   const f = 0.85;
+  
   // - Increment for the noise 
   const i = 0.001;
   
@@ -48,13 +49,18 @@ function setup() {
   for (let x = -width; x < width + width; x += s) {
     // A midpoint with a noisy offset in x,y is calculated and added
     const mid = createVector(x, height * noise(n));
+    
     const off = createVector(height * noise(n), 0);
+    
     mid.add(off);
     
     // Make each shape in a random color from the list
     stroke(random(colors));
+    
     // Prevent default white fill
     noFill();
+    
+    // A random value, smaller than the distance betweeen curves
     strokeWeight(random(f * s));
     
     // Draw the shape
@@ -78,3 +84,6 @@ function setup() {
   // Done, save out
   save("colorstripes1.jpg");
 }
+
+
+# colorstripes 2

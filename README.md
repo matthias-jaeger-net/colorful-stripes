@@ -18,16 +18,28 @@ const colors = [
 ```
 
 # colorstripes 1
-![colorstripes1](colorstripes1(16).jpg)
+Along the the X-axis a number of vertical lines in random colors are created and modified with perlin noise to render a 'fluid' looking piece.
 
+![colorstripes1](colorstripes1(16).jpg)
+*An example that worked for me*
+
+![colorstripes1](colorstripes1(16).jpg)
+*An example that didn't work for me*
+
+## Code
 ```javascript
 function setup() {
+  createCanvas(800, 400);  
+
+  // Initial distance between the lines
   const s = 8;
+  // Scales the thickness 
   const f = 0.85;
+  // Increment for the noise 
   const i = 0.001;
+  // Currenet noise 
   let n = 0;
-  createCanvas(800, 800);
-  stroke(random(colors));
+
   for (let x = -width; x < width + width; x += s) {
     const mid = createVector(x, height * noise(n));
     const off = createVector(height * noise(n), 0);
@@ -44,5 +56,5 @@ function setup() {
     endShape();
     n += i;
   }
-  save("colorstripes.jpg");
+  save("colorstripes1.jpg");
 }

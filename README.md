@@ -175,4 +175,35 @@ function setup() {
   save("colorstripes3.jpg");
 }
 ```
+# colorstripes 4
 
+![colorstripes1](colorstripes4(13).jpg)
+
+
+```javascript
+function setup() {
+  createCanvas(800, 800);
+  noFill();
+  background(0);
+  const s = 5;
+  const i = 0.01224439131597621;
+  let d = 0;
+  let n = 0;  
+  let skew = 0.1;
+  let blow = 10;
+  for (let x = -width; x < width + width; x += s) {
+    stroke(random(colors));
+    strokeWeight(random(4))
+    beginShape();
+    for (let y = -s; y < height + s * 2; y += s) {
+      const o = sin(n * d * cos(n*skew)) * s * blow;
+      curveVertex(x - o, y);
+      n += i;
+    }
+    n = 0;
+    d += i;
+    endShape();
+  }
+  save("colorstripes4.jpg");
+}
+```

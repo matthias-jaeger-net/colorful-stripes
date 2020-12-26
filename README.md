@@ -7,20 +7,19 @@ A collection of a few attempts to create a colorful minimalistic visual in p5 js
 
 ```javascript
 function setup() {
-  createCanvas(800, 400);
-
+  createCanvas(800, 400);  
+  
   const colors = [
     '#E55A2E', '#E5BC4B', '#FEED61', '#DAEC5E', '#3F864D',
     '#58B2B0', '#5B8FEB', '#3260B2', '#000000'
   ];
-
   const spacing = 8;
   const leftEdge = -width;
   const rightEdge = width + width;
   const reduction = 0.85;
   const noiseInc = 0.001;
   let currentNoise = 0;
-
+  
   for (let x = leftEdge; x < rightEdge; x += spacing) {
     const curving = createVector(x, height * noise(currentNoise));
     const offsetx = createVector(width * noise(currentNoise), 0);
@@ -36,7 +35,7 @@ function setup() {
     curveVertex(x, height);
     curveVertex(x, height);
     endShape();
-
+    
     currentNoise += noiseInc;
   }
 }

@@ -79,7 +79,7 @@ function setup() {
 ```
 
 # colorstripes 2
-![colorstripes1](colorstripes1(16).jpg)
+![colorstripes1](colorstripes2(7).jpg)
 
 ```javascript
 function setup() {

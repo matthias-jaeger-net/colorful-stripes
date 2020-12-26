@@ -110,6 +110,69 @@ function setup() {
     m += j;
   }
   
-  // save("colorstripes2.jpg");
+  save("colorstripes2.jpg");
 }
 ```
+
+# colorstripes 3
+
+![colorstripes1](colorstripes3(7).jpg)
+
+
+```javascript
+function setup() {
+
+  // Format
+  createCanvas(800, 400);
+  
+  // Black background
+  background(0);
+  
+  // Prevent default fill
+  noFill();
+  
+  // Points on a 'line' on top, from left to right
+  const shape = [];
+  
+  // Construct the points 
+  for (let i = -10; i < 20; i++) {
+    
+    // Very hacky
+    let x = i * (width / 10);
+    
+    // Something for x and 0 for y
+    shape.push(createVector(x, 0));
+  }
+  
+  // Loops from top to bottom 
+  for (let i = 0; i < height; i++) {
+    // Random color from the list
+    stroke(random(colors));
+    
+    // Random thickness
+    strokeWeight(random(2));
+    
+    // Draw the shape
+    beginShape();
+    for (let vector of shape) {
+      
+      // Add the vertex to the shape
+      curveVertex(vector.x, vector.y);
+      
+      // Then modify the vertext in the list
+      // These numbers greatly affect the outcome...
+      const shift_x = random(-5, 5);
+      const drops_y = random(0, 8);
+      
+      // Add the modifictation 
+      vector.add(createVector(shift_x, drops_y));
+    }
+    endShape();
+    
+  }
+  
+  // Done, save out
+  save("colorstripes3.jpg");
+}
+```
+

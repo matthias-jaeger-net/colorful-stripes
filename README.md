@@ -18,7 +18,7 @@ const colors = [
 ```
 
 # colorstripes 1
-![colorstripes1](colorstripes1.jpg)
+![colorstripes1](colorstripes1(16).jpg)
 
 ```javascript
 function setup() {

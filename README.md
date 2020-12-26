@@ -20,12 +20,7 @@ const colors = [
 # colorstripes 1
 
 ![colorstripes1](colorstripes1(16).jpg)
-*An example that worked for me*
 
-![colorstripes1](colorstripes1(4).jpg)
-*An example that didn't work for me*
-
-## Code with comments
 ```javascript
 function setup() {
 
@@ -46,6 +41,7 @@ function setup() {
   
   // Hack: Loops larger than the view to avoid empty spots
   for (let x = -width; x < width + width; x += s) {
+
     // A point on a 'virtual line' from top to bottom 
     const mid = createVector(x, height * noise(n));
     
@@ -66,16 +62,11 @@ function setup() {
     
     // Draw the shape
     beginShape();
-    // Control start
-    curveVertex(x, 0);
-    // Anchor start
-    curveVertex(x, 0);
-    // Curvy midpoint
-    curveVertex(mid.x, mid.y);
-    // Anchor end
-    curveVertex(x, height);
-    // Control end
-    curveVertex(x, height);
+    curveVertex(x, 0);          // Control start
+    curveVertex(x, 0);          // Anchor start
+    curveVertex(mid.x, mid.y);  // Curvy midpoint
+    curveVertex(x, height);     // Anchor end
+    curveVertex(x, height);     // Control end
     endShape();
     
     // Travel along the noise wave
@@ -88,3 +79,37 @@ function setup() {
 ```
 
 # colorstripes 2
+![colorstripes1](colorstripes1(16).jpg)
+
+```javascript
+function setup() {
+  
+  const s = 8
+  const f = 0.55;
+  const i = 0.001;
+  const j = 0.01;
+  let n = 0;
+  let m = 0;
+  createCanvas(800, 400);
+  stroke(random(colors));
+  for (let x = -width; x < width + width; x += s) {
+    const a = createVector(x - noise(n) * width, 400 * noise(m));
+    const b = createVector(x - noise(m) * width, 800 * noise(n));
+    stroke(random(colors));
+    noFill();
+    strokeWeight(random(f * s));
+    beginShape();
+    curveVertex(x, 0);
+    curveVertex(x, -10);
+    curveVertex(a.x, a.y);
+    curveVertex(b.x, b.y);
+    curveVertex(x, height);
+    curveVertex(x, height);
+    endShape();
+    n += i;
+    m += j;
+  }
+  
+  // save("colorstripes2.jpg");
+}
+```

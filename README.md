@@ -6,33 +6,37 @@ A collection of a few attempts to create a colorful minimalistic visual in p5 js
 ![colorstripes1](colorstripes1(16).jpg)
 
 ```javascript
-const colors = [
-  '#E55A2E', '#E5BC4B', '#FEED61',
-  '#DAEC5E', '#3F864D', '#58B2B0',
-  '#5B8FEB', '#3260B2', '#000000'
-];
-
-
 function setup() {
   createCanvas(800, 400);
-  noFill();
+
+  const colors = [
+    '#E55A2E', '#E5BC4B', '#FEED61', '#DAEC5E', '#3F864D',
+    '#58B2B0', '#5B8FEB', '#3260B2', '#000000'
+  ];
+
   const spacing = 8;
+  const leftEdge = -width;
+  const rightEdge = width + width;
   const reduction = 0.85;
   const noiseInc = 0.001;
   let currentNoise = 0;
-  for (let x = -width; x < width + width; x += spacing) {
-    const mid = createVector(x, height * noise(currentNoise));
-    const off = createVector(width * noise(currentNoise), 0);
-    mid.add(off);
+
+  for (let x = leftEdge; x < rightEdge; x += spacing) {
+    const curving = createVector(x, height * noise(currentNoise));
+    const offsetx = createVector(width * noise(currentNoise), 0);
+    curving.add(offsetx);
+    
+    noFill();
     stroke(random(colors));
     strokeWeight(random(spacing * reduction));
     beginShape();
     curveVertex(x, 0);
     curveVertex(x, 0);
-    curveVertex(mid.x, mid.y);
+    curveVertex(curving.x, curving.y);
     curveVertex(x, height);
     curveVertex(x, height);
     endShape();
+
     currentNoise += noiseInc;
   }
 }

@@ -32,26 +32,27 @@ function setup() {
   // Format
   createCanvas(800, 400);  
   
-  // Variables to play with:
-  // - Initial distance between the lines
+  // Distance between the lines
   const s = 8;
   
-  // - Scales the thickness 
+  // Scales the thickness 
   const f = 0.85;
   
-  // - Increment for the noise 
+  // Increment for the noise 
   const i = 0.001;
   
-  // Currenet noise 
+  // Current noise 
   let n = 0;
   
   // Hack: Loops larger than the view to avoid empty spots
   for (let x = -width; x < width + width; x += s) {
-    // A midpoint with a noisy offset in x,y is calculated and added
-    const mid = createVector(x, height * noise(n));
+    // Calculate a 'midpoint' bewteen start and end of the curve
+    const mid = createVector(x, height * 0.5);
     
+    // Calculate a noisy offset vector
     const off = createVector(height * noise(n), 0);
     
+    // Add the offset
     mid.add(off);
     
     // Make each shape in a random color from the list
@@ -84,6 +85,6 @@ function setup() {
   // Done, save out
   save("colorstripes1.jpg");
 }
-
+```
 
 # colorstripes 2

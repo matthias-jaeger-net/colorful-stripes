@@ -154,3 +154,61 @@ function setup() {
   save("colorstripes4.jpg");
 }
 ```
+
+# colorstripes 5
+
+![colorstripes5](colorstripes5(106).jpg)
+
+```javascript
+function setup() {
+  createCanvas(800, 400);
+  background(0);
+  noFill();
+  const points = [];
+  const s = 8;
+  let index = 0;
+  for (let x = 0; x < width; x += s) {
+    const col = random(colors);
+    for (let y = 0; y < height; y++) {
+      points.push({
+        col: col,
+        pos: createVector(x, y),
+        index: index,
+      });
+      index++;
+    }
+  }
+  
+  const stregth = random(height * 0.5);
+  const attractor = createVector(402, height*0.5-1);
+  for (let v of points) {
+    const a = v.pos.copy();
+    const b = attractor;
+    const d = a.sub(b).normalize().mult(stregth);
+    v.pos.add(d);
+  }
+
+  for (let r = 0; r < stregth+s-0.3; r += s) {
+    const a = attractor.copy();
+    const b = p5.Vector.random2D().mult(random(3));
+    a.add(b);    
+    strokeWeight(random(2));
+    stroke(random(colors));
+    circle(a.x, a.y, r*2);  
+  }
+  
+  index = 0;
+  for (let x = 0; x < width; x += s) {
+    strokeWeight(random(3));
+    beginShape();
+    for (let y = 0; y < height; y++) {
+      const v = points[index];
+      stroke(v.col)
+      curveVertex(v.pos.x, v.pos.y);
+      index++;
+    }
+    endShape();
+  }
+  save('colorstripes5');
+}
+```

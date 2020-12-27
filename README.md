@@ -1,22 +1,22 @@
 # colorful-stripes
 An ongoing collection of my attempts to create a colorful minimalistic visual in p5 js. All examples create a striped pattern of various kinds. See the sketches and output images below for inspiration. I kept it short and simple, but some things might be complicated to understand. I try to clarify in the comments of each sketch when I think this is complicated or wired. 
 
-### Basic structure of a p5 sketch
+### Basic structure of every sketch here:
 ```html
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- p5 -->
+    <!-- p5 js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
   </head>
   <body>
-    <!-- colors -->
+    <!-- my own colors -->
     <script src="colors.js"></script>
-    <!-- design -->
+    <!-- my designs -->
     <script src="sketch.js"></script>
   </body>
 </html>
@@ -28,6 +28,8 @@ function setup() {
   ...
 }
 ```
+
+### Used color constants
 ```javascript
 // colors.js
 const colors = [ '#E55A2E', '#E5BC4B', '#FEED61', '#DAEC5E', '#3F864D', '#58B2B0', '#5B8FEB', '#3260B2', '#000000'];

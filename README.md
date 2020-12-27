@@ -1,7 +1,7 @@
 # colorful-stripes
 An ongoing collection of my attempts to create a colorful minimalistic visual in [p5 js](https://p5js.org). All examples create a striped pattern of various kinds. See the sketches and output images below for inspiration. I kept it short and simple, but some things might be complicated to understand. I try to clarify in the comments of each sketch when I think this is complicated or wired. 
 
-### Basic structure of every sketch here:
+### Basic structure
 ```html
 <!-- index.html -->
 <!DOCTYPE html>
@@ -22,15 +22,6 @@ An ongoing collection of my attempts to create a colorful minimalistic visual in
 </html>
 ```
 ```javascript
-// sketch.js
-function setup() {
-  // See below ..
-  ...
-}
-```
-
-### Used color constants
-```javascript
 // colors.js
 const colors = [ '#E55A2E', '#E5BC4B', '#FEED61', '#DAEC5E', '#3F864D', '#58B2B0', '#5B8FEB', '#3260B2', '#000000'];
 ```
@@ -40,6 +31,7 @@ const colors = [ '#E55A2E', '#E5BC4B', '#FEED61', '#DAEC5E', '#3F864D', '#58B2B0
 ![colorstripes1](colorstripes1(16).jpg)
 
 ```javascript
+// sketch.js
 // The curving 'midpoint' is modulated with noise
 function setup() {
   createCanvas(800, 400);  
@@ -77,6 +69,7 @@ function setup() {
 ![colorstripes1](colorstripes2(7).jpg)
 
 ```javascript
+// sketch.js
 // Two curving 'midpoints' modulated with noise 
 function setup() {
   createCanvas(800, 400);
@@ -121,6 +114,7 @@ function setup() {
 
 
 ```javascript
+// sketch.js
 // Curved shapes are modulated with random vectors 
 function setup() {
  createCanvas(800, 400);
@@ -156,6 +150,7 @@ function setup() {
 
 
 ```javascript
+// sketch.js
 // Curved shapes are modulated by a wave
 function setup() {
   createCanvas(800, 800);
@@ -189,6 +184,7 @@ function setup() {
 ![colorstripes5](colorstripes5(1).png)
 
 ```javascript
+// sketch.js
 // Curved lines respecting the distance to an attractor point
 function setup() {
   createCanvas(800, 400);

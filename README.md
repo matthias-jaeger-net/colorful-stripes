@@ -1,5 +1,5 @@
 # colorful-stripes
-A collection of a few attempts to create a colorful minimalistic visual in p5 js
+### An ongoing collection of my attempts to create a colorful minimalistic visual in p5 js. All examples create a striped pattern of various kinds. See the sketches and output images below for inspiration. I kept it short and simple, but some things might be complicated to understand. I try to clarify in the comments of each sketch when I think this is complicated or wired. 
 
 
 ```javascript

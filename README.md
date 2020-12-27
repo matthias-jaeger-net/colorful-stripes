@@ -3,11 +3,8 @@ An ongoing collection of my attempts to create a colorful minimalistic visual in
 
 
 ```javascript
-// Used in all attempts
-const colors = [
-  '#E55A2E', '#E5BC4B', '#FEED61', '#DAEC5E', '#3F864D',
-  '#58B2B0', '#5B8FEB', '#3260B2', '#000000'
-];
+// Used in all attempts - for readability excluded.
+const colors = [ '#E55A2E', '#E5BC4B', '#FEED61', '#DAEC5E', '#3F864D', '#58B2B0', '#5B8FEB', '#3260B2', '#000000'];
 ```
 
 # colorstripes 1
@@ -15,6 +12,7 @@ const colors = [
 ![colorstripes1](colorstripes1(16).jpg)
 
 ```javascript
+// The curving 'midpoint' is modulated with noise
 function setup() {
   createCanvas(800, 400);  
   
@@ -51,6 +49,7 @@ function setup() {
 ![colorstripes1](colorstripes2(7).jpg)
 
 ```javascript
+// Two curving 'midpoints' modulated with noise 
 function setup() {
   createCanvas(800, 400);
   
@@ -94,6 +93,7 @@ function setup() {
 
 
 ```javascript
+// Curved shapes are modulated with random vectors 
 function setup() {
  createCanvas(800, 400);
   background(0);
@@ -128,6 +128,7 @@ function setup() {
 
 
 ```javascript
+// Curved shapes are modulated by a wave
 function setup() {
   createCanvas(800, 800);
   noFill();
@@ -160,6 +161,7 @@ function setup() {
 ![colorstripes5](colorstripes5(1).png)
 
 ```javascript
+// Curved lines respecting the distance to an attractor point
 function setup() {
   createCanvas(800, 400);
   background(0);
